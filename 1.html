@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta name="viewport" content="width=device-width"/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<style type="text/css">body,html {background:#fff;font-family:"Bitstream Vera Sans","Lucida Grande","Lucida Sans Unicode",Lucidux,Verdana,Lucida,sans-serif;}tr:nth-child(even) {background:#f4f4f4;}th,td {padding:0.1em 0.5em;}th {text-align:left;font-weight:bold;background:#eee;border-bottom:1px solid #aaa;}#list {border:1px solid #aaa;width:100%;}a {color:#a33;}a:hover {color:#e33;}</style>
+<script type="text/javascript" src="jquery.js"></script>
+<title>Index of /</title>
+</head>
+<body>
+	<h1>Index of /</h1>
+<table id="list" cellpadding="0.1em" cellspacing="0">
+<colgroup><col width="55%"/><col width="20%"/><col width="25%"/></colgroup>
+<thead><tr><th>文件名&nbsp;</th><th>类型&nbsp;</th><th>日期&nbsp;</th></tr></thead>
+<tbody>
+<tr id='one'><td><a href="../">../</a></td><td>-</td><td>-</td></tr>
+
+</tbody>
+</table>
+<script type="text/javascript">
+	$(function() { 
+		$.ajax({
+			url:"http://127.0.0.1/",
+			async : false,
+			dataType : "json",
+			success : function(data) {
+				var file=data.file;
+				var dir=data.dir;
+				var addr=data.address;
+				for(var i = 0; i < file.length; i++) { 
+				    html2='<tr><td>'+file[i]+'</td><td>File</td><td>-</td></tr>';
+				    $("#one").after(html2);
+				}
+				for(var i = 0; i < dir.length; i++) { 
+				    html='<tr><td>'+dir[i]+'</td><td>Directory</td><td>-</td></tr>';
+				    $("#one").after(html);
+				}
+				
+			}
+		});
+	});
+</script>
+<div id="footer"></div>
+
